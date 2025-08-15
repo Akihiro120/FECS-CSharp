@@ -1,0 +1,14 @@
+/Users/akihiro/Desktop/FECS-CS/bin/Debug/net9.0/FECS-CS
+/Users/akihiro/Desktop/FECS-CS/bin/Debug/net9.0/FECS-CS.deps.json
+/Users/akihiro/Desktop/FECS-CS/bin/Debug/net9.0/FECS-CS.runtimeconfig.json
+/Users/akihiro/Desktop/FECS-CS/bin/Debug/net9.0/FECS-CS.dll
+/Users/akihiro/Desktop/FECS-CS/bin/Debug/net9.0/FECS-CS.pdb
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/FECS-CS.GeneratedMSBuildEditorConfig.editorconfig
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/FECS-CS.AssemblyInfoInputs.cache
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/FECS-CS.AssemblyInfo.cs
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/FECS-CS.csproj.CoreCompileInputs.cache
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/FECS-CS.dll
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/refint/FECS-CS.dll
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/FECS-CS.pdb
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/FECS-CS.genruntimeconfig.cache
+/Users/akihiro/Desktop/FECS-CS/obj/Debug/net9.0/ref/FECS-CS.dll
