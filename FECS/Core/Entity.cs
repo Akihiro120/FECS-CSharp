@@ -2,7 +2,7 @@ namespace FECS.Core
 {
     public class Entity
     {
-        private uint m_ID = 0;
+        private readonly uint m_ID = 0;
 
         public Entity(uint index, uint version)
         {
@@ -11,7 +11,7 @@ namespace FECS.Core
 
         public bool IsValid()
         {
-            return m_ID == Types.INVALID_ENTITY;
+            return m_ID != Types.INVALID_ENTITY;
         }
 
         public uint GetIndex()
