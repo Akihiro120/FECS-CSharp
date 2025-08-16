@@ -15,8 +15,8 @@ namespace FECS.Manager
 
         public void Reserve(int amount)
         {
-            m_Versions.Capacity = amount;
-            m_FreeList.Capacity = amount;
+            m_Versions.EnsureCapacity(amount);
+            m_FreeList.EnsureCapacity(amount);
         }
 
         public Entity Create()
