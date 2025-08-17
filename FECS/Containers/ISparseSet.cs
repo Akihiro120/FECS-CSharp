@@ -8,7 +8,7 @@ namespace FECS.Containers
         void Remove(Entity e);
         void Clear();
 
-        EntityManager GetEntityManager();
+        EntityManager? GetEntityManager();
         void SetEntityManager(EntityManager? entityManager);
     }
 }
