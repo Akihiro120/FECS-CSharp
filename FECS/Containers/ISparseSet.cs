@@ -9,6 +9,6 @@ namespace FECS.Containers
         void Clear();
 
         EntityManager GetEntityManager();
-        void SetEntityManager(EntityManager entityManager);
+        void SetEntityManager(EntityManager? entityManager);
     }
 }
