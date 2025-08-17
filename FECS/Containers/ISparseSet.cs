@@ -1,4 +1,5 @@
 using FECS.Core;
+using FECS.Manager;
 
 namespace FECS.Containers
 {
@@ -7,5 +8,7 @@ namespace FECS.Containers
         void Remove(Entity e);
         void Clear();
 
+        EntityManager GetEntityManager();
+        void SetEntityManager(EntityManager entityManager);
     }
 }
