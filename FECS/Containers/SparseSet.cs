@@ -6,7 +6,7 @@ namespace FECS.Containers
 {
     public class SparseSet<T> : ISparseSet
     {
-        private EntityManager m_EntityManager;
+        private EntityManager? m_EntityManager;
 
         private const int SPARSE_PAGE_SIZE = 2048;
         private const int NPOS = int.MaxValue;
@@ -15,18 +15,30 @@ namespace FECS.Containers
         private List<Entity> m_DenseEntities;
         private List<int[]?> m_Sparse;
 
-        public SparseSet(EntityManager manager)
+        public SparseSet()
         {
-            m_EntityManager = manager;
-
             m_Dense = new List<T>();
             m_DenseEntities = new List<Entity>();
             m_Sparse = new List<int[]?>();
         }
 
+        public EntityManager GetEntityManager()
+        {
+            if (m_EntityManager == null)
+            {
+                throw new InvalidOperationException("Entity Manager is not assigned");
+            }
+            return m_EntityManager;
+        }
+
+        public void SetEntityManager(EntityManager manager)
+        {
+            m_EntityManager = manager;
+        }
+
         public void Insert(Entity e, T component)
         {
-            if (!m_EntityManager.IsAlive(e))
+            if (!m_EntityManager!.IsAlive(e))
             {
                 throw new InvalidOperationException("Cannot Assign Component to Dead Entity");
             }
@@ -48,7 +60,7 @@ namespace FECS.Containers
 
         public void Remove(Entity e)
         {
-            if (!m_EntityManager.IsAlive(e))
+            if (!m_EntityManager!.IsAlive(e))
             {
                 throw new InvalidOperationException("Cannot Remove Component to Dead Entity");
             }
@@ -85,7 +97,7 @@ namespace FECS.Containers
 
         public ref T Get(Entity e)
         {
-            if (!m_EntityManager.IsAlive(e))
+            if (!m_EntityManager!.IsAlive(e))
             {
                 throw new InvalidOperationException("Attemped Get() on a Dead Entity");
             }
