@@ -22,12 +22,8 @@ namespace FECS.Containers
             m_Sparse = new List<int[]?>();
         }
 
-        public EntityManager GetEntityManager()
+        public EntityManager? GetEntityManager()
         {
-            if (m_EntityManager == null)
-            {
-                throw new InvalidOperationException("Entity Manager is not assigned");
-            }
             return m_EntityManager;
         }
 
