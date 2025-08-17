@@ -31,7 +31,7 @@ namespace FECS.Containers
             return m_EntityManager;
         }
 
-        public void SetEntityManager(EntityManager manager)
+        public void SetEntityManager(EntityManager? manager)
         {
             m_EntityManager = manager;
         }
