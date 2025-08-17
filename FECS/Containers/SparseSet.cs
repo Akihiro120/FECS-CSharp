@@ -26,12 +26,48 @@ namespace FECS.Containers
 
         public void Insert(Entity e, T component)
         {
+            if (!m_EntityManager.IsAlive(e))
+            {
+                throw new InvalidOperationException("Cannot Assign Component to Dead Entity");
+            }
 
+            uint idx = e.GetIndex();
+            ref int slot = ref SparseSlot((int)idx);
+
+            if (slot == NPOS)
+            {
+                slot = m_Dense.Count;
+                m_DenseEntities.Add(e);
+                m_Dense.Add(component);
+            }
+            else
+            {
+                m_Dense[slot] = component;
+            }
         }
 
         public void Remove(Entity e)
         {
+            if (!m_EntityManager.IsAlive(e))
+            {
+                throw new InvalidOperationException("Cannot Remove Component to Dead Entity");
+            }
 
+            uint idx = e.GetIndex();
+            ref int slot = ref SparseSlot((int)idx);
+
+            int last = m_Dense.Count - 1;
+            if (slot != last)
+            {
+                m_Dense[slot] = m_Dense[last];
+                m_DenseEntities[slot] = m_DenseEntities[last];
+
+                SparseSlot((int)m_DenseEntities[slot].GetIndex()) = slot;
+            }
+
+            m_Dense.RemoveAt(m_Dense.Count - 1);
+            m_DenseEntities.RemoveAt(m_DenseEntities.Count - 1);
+            slot = NPOS;
         }
 
         public bool Has(Entity e)
