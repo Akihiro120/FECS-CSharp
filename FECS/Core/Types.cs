@@ -1,5 +1,10 @@
 namespace FECS.Core
 {
+    public class GlobalComponent
+    {
+        // This is an empty component
+    }
+
     public static class Types
     {
         public const int ENTITY_INDEX_BITS = 20;
