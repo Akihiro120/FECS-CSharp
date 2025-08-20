@@ -1,6 +1,7 @@
 using FECS.Core;
 using FECS.Manager;
 using FECS.Containers;
+using FECS.View;
 
 namespace FECS
 {
@@ -87,6 +88,17 @@ namespace FECS
             }
 
             return ref Get<T>(e);
+        }
+
+        // VIEWS ///////////////////////////////////////////////////
+        public View<T1, T2> CreateView<T1, T2>()
+            where T1 : struct
+            where T2 : struct
+        {
+            var view = ViewHolder<T1, T2>.ViewInstance;
+            view.SetEntityManager(m_EntityManager);
+
+            return view;
         }
     }
 }
