@@ -76,10 +76,26 @@ namespace FECS.View
         public void Each(EachDelegate fn)
         {
             CheckAndRebuildCache();
+
             foreach (Entity entity in m_Cache)
             {
-                fn(entity, ref m_Pools.p1.Get(entity), ref m_Pools.p2.Get(entity));
+                // NOTE: Solution to Filter Performance: 
+                // we run the filters if available, then clear, otherwise we run the cache normally
+                if (m_FilterPredicates.Count > 0)
+                {
+                    if (PassesAllFilters(entity))
+                    {
+
+                        fn(entity, ref m_Pools.p1.Get(entity), ref m_Pools.p2.Get(entity));
+                    }
+                }
+                else
+                {
+                    fn(entity, ref m_Pools.p1.Get(entity), ref m_Pools.p2.Get(entity));
+                }
             }
+
+            m_FilterPredicates.Clear();
         }
     }
 }

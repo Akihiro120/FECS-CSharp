@@ -57,11 +57,12 @@ namespace FECS.View
 
             // PERF: Potentially providing some overhead, as it only forces the cache to rebuild if filters are used.
             // Find a method to have filters, but not have to invalidate the cache
-            if (m_FilterPredicates.Count > 0)
-            {
-                m_FilterPredicates.Clear();
-                m_CacheBuilt = false;
-            }
+
+            // if (m_FilterPredicates.Count > 0)
+            // {
+            //     m_FilterPredicates.Clear();
+            //     m_CacheBuilt = false;
+            // }
         }
 
         protected abstract bool IsDirty();
