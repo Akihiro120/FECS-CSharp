@@ -15,7 +15,10 @@ namespace FECS
 
         public Entity CreateEntity()
         {
-            return m_EntityManager.Create();
+            Entity e = m_EntityManager.Create();
+            e.AttachRegistry(this);
+
+            return e;
         }
 
         public void DestroyEntity(Entity id)
