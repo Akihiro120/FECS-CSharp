@@ -24,6 +24,22 @@ namespace FECS.View
 
         }
 
+        public View<T1, T2> With<C>()
+            where C : struct
+        {
+            m_FilterPredicates.Add(e => ComponentManager.GetPool<C>(m_EntityManager).Has(e));
+            m_CacheBuilt = false;
+            return this;
+        }
+
+        public View<T1, T2> Without<C>()
+            where C : struct
+        {
+            m_FilterPredicates.Add(e => !ComponentManager.GetPool<C>(m_EntityManager).Has(e));
+            m_CacheBuilt = false;
+            return this;
+        }
+
         protected override bool IsDirty()
         {
             return m_Versions[0] != ComponentManager.GetVersion<T1>() ||

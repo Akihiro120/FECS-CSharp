@@ -1,5 +1,6 @@
 using FECS.Core;
 using FECS.Manager;
+using FECS.Containers;
 
 namespace FECS.View
 {
@@ -11,10 +12,13 @@ namespace FECS.View
         protected int m_GlobalVersion = 0;
         protected bool m_CacheBuilt = false;
 
+        protected List<Func<Entity, bool>> m_FilterPredicates;
+
         protected ViewBase(int numComponents)
         {
-            m_Cache = new List<Entity>();
+            m_Cache = new List<Entity>(16);
             m_Versions = new int[numComponents];
+            m_FilterPredicates = new List<Func<Entity, bool>>();
 
             InitializePools();
         }
@@ -27,6 +31,11 @@ namespace FECS.View
         public void Reserve(int size)
         {
             m_Cache.EnsureCapacity(size);
+        }
+
+        protected bool PassesAllFilters(Entity entity)
+        {
+            return m_FilterPredicates.All(predicate => predicate(entity));
         }
 
         protected void CheckAndRebuildCache()
@@ -44,6 +53,14 @@ namespace FECS.View
                 UpdateLastVersions();
 
                 m_CacheBuilt = true;
+            }
+
+            // PERF: Potentially providing some overhead, as it only forces the cache to rebuild if filters are used.
+            // Find a method to have filters, but not have to invalidate the cache
+            if (m_FilterPredicates.Count > 0)
+            {
+                m_FilterPredicates.Clear();
+                m_CacheBuilt = false;
             }
         }
 
