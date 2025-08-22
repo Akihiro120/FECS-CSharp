@@ -92,7 +92,7 @@ namespace FECS
 
         // VIEWS ///////////////////////////////////////////////////
         public View<T1> CreateView<T1>()
-                    where T1 : struct
+            where T1 : struct
         {
             var view = ViewHolder<T1>.ViewInstance;
             view.SetEntityManager(m_EntityManager);
@@ -105,6 +105,17 @@ namespace FECS
             where T2 : struct
         {
             var view = ViewHolder<T1, T2>.ViewInstance;
+            view.SetEntityManager(m_EntityManager);
+
+            return view;
+        }
+
+        public View<T1, T2, T3> CreateView<T1, T2, T3>()
+            where T1 : struct
+            where T2 : struct
+            where T3 : struct
+        {
+            var view = ViewHolder<T1, T2, T3>.ViewInstance;
             view.SetEntityManager(m_EntityManager);
 
             return view;
