@@ -104,13 +104,14 @@ namespace FECS.View
                 throw new ArgumentNullException("Entity Manager is not assigned to object.");
             }
 
-            if (!m_CacheBuilt || IsDirty())
+            if (!m_CacheBuilt || IsDirty() || m_GlobalVersion != ComponentManager.GetVersion<GlobalComponent>())
             {
                 m_Cache.Clear();
 
                 PopulateCache();      // Derived class populates entities matching component constraints
                 UpdateLastVersions(); // Update version stamps for future IsDirty checks
 
+                m_GlobalVersion = ComponentManager.GetVersion<GlobalComponent>();
                 m_CacheBuilt = true;
             }
 
