@@ -92,6 +92,11 @@ namespace FECS.Containers
         /// <inheritdoc/>
         public void Remove(Entity e)
         {
+            if (!Has(e))
+            {
+                return;
+            }
+
             if (!m_EntityManager!.IsAlive(e))
                 throw new InvalidOperationException("Cannot remove component from a dead entity.");
 
