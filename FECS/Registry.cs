@@ -146,6 +146,9 @@ namespace FECS
         {
             SparseSet<T> set = ComponentManager.GetPool<T>(m_EntityManager);
             set.Remove(e);
+
+            // Increment per-type version to notify views/systems that cache component queries.
+            ComponentManager.GetVersion<T>()++;
         }
 
         /// <summary>
