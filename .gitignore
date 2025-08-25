@@ -28,5 +28,3 @@ packages/
 *.log
 *.cache
 *.tmp
-
-Program.cs
