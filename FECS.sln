@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECS", "FECS\FECS.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECS.Tests", "FECS.Tests\FECS.Tests.csproj", "{13DF934C-4D6F-4B72-8E42-6CA6051AD052}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FECS.Benchmarks", "FECS.Benchmarks\FECS.Benchmarks.csproj", "{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{13DF934C-4D6F-4B72-8E42-6CA6051AD052}.Release|x64.Build.0 = Release|Any CPU
 		{13DF934C-4D6F-4B72-8E42-6CA6051AD052}.Release|x86.ActiveCfg = Release|Any CPU
 		{13DF934C-4D6F-4B72-8E42-6CA6051AD052}.Release|x86.Build.0 = Release|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Debug|x64.Build.0 = Debug|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Debug|x86.Build.0 = Debug|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Release|x64.ActiveCfg = Release|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Release|x64.Build.0 = Release|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Release|x86.ActiveCfg = Release|Any CPU
+		{DCF5DD28-C639-4904-9F7E-A3C9B2525DCF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
