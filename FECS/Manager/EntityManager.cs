@@ -38,8 +38,8 @@ namespace FECS.Manager
         /// <param name="amount">The number of entities to reserve space for.</param>
         public void Reserve(int amount)
         {
-            m_Versions.EnsureCapacity(amount);
-            m_FreeList.EnsureCapacity(amount);
+            m_Versions.Capacity = amount;
+            m_FreeList.Capacity = amount;
         }
 
         /// <summary>

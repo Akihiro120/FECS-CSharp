@@ -187,8 +187,8 @@ namespace FECS.Containers
                 }
             }
 
-            m_Dense.EnsureCapacity(amount);
-            m_DenseEntities.EnsureCapacity(amount);
+            m_Dense.Capacity = amount;
+            m_DenseEntities.Capacity = amount;
         }
 
         /// <inheritdoc/>
@@ -214,7 +214,7 @@ namespace FECS.Containers
         {
             int p = GetPageIndex(idx);
 
-            m_Sparse.EnsureCapacity(p + 1);
+            m_Sparse.Capacity = (p + 1);
             while (p >= m_Sparse.Count)
                 m_Sparse.Add(null);
 

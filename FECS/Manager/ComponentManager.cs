@@ -85,7 +85,7 @@ namespace FECS.Manager
         /// <param name="size">The expected number of component types.</param>
         public static void Reserve(int size)
         {
-            m_RegisteredComponents!.EnsureCapacity(size);
+            m_RegisteredComponents!.Capacity = (size);
         }
 
         /// <summary>

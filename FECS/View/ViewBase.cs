@@ -79,7 +79,7 @@ namespace FECS.View
         /// <param name="size">The number of entities to reserve space for.</param>
         public void Reserve(int size)
         {
-            m_Cache.EnsureCapacity(size);
+            m_Cache.Capacity = size;
         }
 
         /// <summary>
